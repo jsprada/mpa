@@ -1,7 +1,7 @@
 # mpa
 Music Player Appliance - Turn your Raspberry Pi into a music playing appliance
 
-### Sample song, "A Deal Soon Regretted" provided by Amplitude Problem:
+Sample song, included in `~/music` "A Deal Soon Regretted" provided by Amplitude Problem:
  
 
 https://amplitudeproblem.bandcamp.com
