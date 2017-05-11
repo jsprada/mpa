@@ -37,5 +37,7 @@ git clone https://github.com/jsprada/mpdbuttons
 cd mpdbuttons
 sudo sh install.sh
 
+mpc update
+
 systemctl reboot
 
