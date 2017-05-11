@@ -9,4 +9,4 @@ https://amplitudeproblem.bandcamp.com
 ## Install from fresh copy of Raspbian:
     sudo apt install git
     git clone https://github.com/jsprada/mpa
-    sudo ./install.sh
+    sudo sh install.sh
