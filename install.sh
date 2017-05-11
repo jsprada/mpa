@@ -9,12 +9,12 @@ sudo pip3 install python-mpd2
 
 hostnamectl set-hostname mpa
 
-cat << _EOF_ > /etc/hosts
+sudo cat << _EOF_ > /etc/hosts
 127.0.0.1       localhost
 127.0.0.1       mpa
 __EOF__
 
-cat << _EOF_ > /etc/motd
+sudo cat << _EOF_ > /etc/motd
 
   _ __  _ __  __ _ 
  | '  \| '_ \/ _\` |
@@ -37,5 +37,6 @@ git clone https://github.com/jsprada/mpdbuttons
 cd mpdbuttons
 sudo sh install.sh
 
+sudo systemctl enable ssh.socket
 systemctl reboot
 
