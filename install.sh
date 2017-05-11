@@ -1,3 +1,6 @@
+#!/bin/sh
+# Install and setup MPA on a fresh installed Debian based Raspberry Pi
+
 apt-get install -y iw wpasupplicant wireless-tools wireless-regdb crda --no-install-recommends
 
 apt-get install -y  mpd git python3 python3-pip rpi.gpio mpc ncmpcpp --no-install-recommends
