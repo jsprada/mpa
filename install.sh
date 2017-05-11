@@ -7,7 +7,6 @@ apt-get install -y  mpd git python3 python3-pip rpi.gpio mpc ncmpcpp --no-instal
 
 sudo pip3 install python-mpd2
 
-
 hostnamectl set-hostname mpa
 
 cat << _EOF_ > /etc/hosts
@@ -28,8 +27,15 @@ cat << _EOF_ > /etc/motd
 
 _EOF_
 
-#sudo ln -s /var/lib/mpd/music ./music
-#sudo mount ./music /var/lib/mpd/music/
+# Copy song to music dir
+sudo cp ~/mpa/music/* /var/lib/mpd/music/
 
-#systemctl reboot
+# set audio to play throuh 3.5mm headphone jack
+amixer cset numid=3 1
+
+git clone https://github.com/jsprada/mpdbuttons
+cd mpdbuttons
+sudo sh install.sh
+
+systemctl reboot
 
