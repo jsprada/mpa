@@ -37,6 +37,11 @@ git clone https://github.com/jsprada/mpdbuttons
 cd mpdbuttons
 sudo sh install.sh
 
+<<<<<<< HEAD
 sudo systemctl enable ssh.socket
+=======
+mpc update
+
+>>>>>>> d50fbfc18ce644178ddd3584eb12f4e3cd021609
 systemctl reboot
 
