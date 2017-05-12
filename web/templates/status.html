@@ -1,0 +1,19 @@
+<html>
+ <head>
+	 <link rel="stylsheet" type="text/css" href="{{ url_for('static', 
+filename='style.css') }}">
+ </head>
+  <body>
+    <h1>Song: {{ current_song.title }}</h1>
+    <h2>by: {{ current_song.artist }}</h2>
+    <p>
+      <ul>
+        {% for key, value in status.items() %}
+          <li>{{ key }}: {{ value }}  </li>
+        {% endfor %}
+      </ul>
+    </p>
+
+  </body>
+</html>
+

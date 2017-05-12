@@ -1,0 +1,30 @@
+<!doctype html>
+<title>MusicPi - By Johnny Sprada - {{ client.track }}</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome-4.4.0/css/font-awesome.css' ) }}">
+<div class=page>
+
+  <div class=top>
+  	<h1><i class="fa fa-thumbs-o-up"> </i> {{ client.state_verb }}: {{ client.track }}</h1>
+  </div>
+
+  <div class=status>
+  	<h2>By: {{ client.artist }}</h2>
+  </div>
+
+  <div class=flash>Connected to MPD: {{ client.connect_status }}</div>
+
+  <div class=message>
+    {% block main_content %}{% endblock %}
+  </div>
+
+  <div class=nav>
+    {% block nav %}{% endblock %}
+  </div>
+
+
+  <div class=foot>Johnny Sprada</div>
+
+
+
+</div>

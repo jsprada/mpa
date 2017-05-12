@@ -1,0 +1,1 @@
+/usr/bin/rsync -avz -e ssh jsprada@10.0.1.10:/home/jsprada/music /home/past/Projects/music/ 

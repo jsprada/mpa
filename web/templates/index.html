@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block main_content %}
+<ul>
+  <li>{{ client.state_action }}</li>
+<ul>
+{% endblock %}
+
+{% block nav %}
+<ul>
+  <li> <a href="{{ url_for('p') }}">{{ client.state_inverse }}</a> </li>
+
+  <p>
+  {{ client.current_playlist }}
+  </p>
+  <p>
+    <ul>
+      {% for playlist in client.playlists %}
+      <li>{{ playlist }}</li>
+      {% endfor %}
+  </ul>
+  </p>
+</ul>
+{% endblock %}
