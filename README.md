@@ -10,4 +10,5 @@ https://amplitudeproblem.bandcamp.com
     sudo apt-get update
     sudo apt-get install git
     git clone https://github.com/jsprada/mpa
+    cd mpa
     sudo sh install.sh
