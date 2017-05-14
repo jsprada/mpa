@@ -1,0 +1,8 @@
+git
+mpd
+python3
+python3-pip
+rpi.gpio
+mpc
+ncmpcpp
+
