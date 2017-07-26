@@ -1,8 +1,8 @@
 #!/bin/sh
 
-MPD=$(systemctl is-active mpd.service)
-BUTTONS=$(systemctl is-active mpaweb.service)
-WEB=$(systemctl is-active mpabuttonsd.service)
+MPD=$(systemctl is-failed mpd.service)
+BUTTONS=$(systemctl is-failed mpaweb.service)
+WEB=$(systemctl is-failed mpabuttonsd.service)
 
 MPD_ENABLED=$(systemctl is-enabled mpd.service)
 BUTTONS_ENABLED=$(systemctl is-enabled mpaweb.service)
