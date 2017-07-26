@@ -1,15 +1,35 @@
 # todo
 
-Setup wifi
-Setup second wifi w/hostapd acess
-Setup auto mount USB & locate music in music dir
+## Environment
+set hostname
+make auto discoverable on local network
+organize scripts accross filesystem
+scope firewall rules
+make mpa user
+setup primary wifi device as connection to host wifi
+setup secondary wifi device as host w/hostapd access
+
+
+runonce on boot (systemd unit)
+- check install status
+- check for music library on usb thumbdrive (usb stick with `music` dir)
+  - mount appropriate
+
+
+runonce on shutdown (systemd unit)
+- rsync local music library from a network share 
+- setup second wifi w/hostapd acess
+
+refine auto mount USB & locate music in music dir `tools/mountusb.sh`
+
+
+
+
 
 ##Configurations for audio output:
 ###3.5mm jack
 
 ###HiFiBerry
-
- apt-get install alsa-utils
 
  edit /boot/config.txt
  
@@ -49,5 +69,7 @@ restore_paused "yes"
 
 # create a symlink to automounted usb stick
 follow_outside_symlinks        "yes"
+
+
 
 
