@@ -28,7 +28,7 @@ import longpress
 # bounce time in ms
 bounce = 300
 longpress_bounce = 100
-longpress_time = 3000
+longpress_time = 2000
 
 vol_variance = 5
 
@@ -59,18 +59,25 @@ def client_connect():
 
 def rise_or_fall_callback(channel):
     if GPIO.input(channel):
+        print(" * Release Callback")
         button_release_event(channel)
     else:
+        print("* Press Callback")
         button_press_event(channel)
 
 def button_press_event(channel):
     lp_buttons[channel].set_press_time()
+    press_time = lp_buttons[channel].press_time
     time.sleep(.1)
+    print("  press event:  %s" % press_time)
 
 def button_release_event(channel):
     lp_buttons[channel].set_release_time()
+    time.sleep(.2)
     press_length = lp_buttons[channel].elapsed_time
-
+    release_time = lp_buttons[channel].release_time
+    print("  release event: %s" % release_time )
+    print("   elapsed: %s" % press_length )
     if press_length <= longpress_time:
         ''' short press event '''
         if channel == play_pause:
@@ -168,18 +175,18 @@ def next_long(channel):
     print(channel)
     print("Next Playlist")
     
-    client = client_connect()
-    print(client.playlist())
-    client.disconnect()
+    #client = client_connect()
+    #print(client.playlist())
+    #client.disconnect()
 
 
 def prev_long(channel):
     print(channel)
     print("Previous Playlist")
     
-    client = client_connect()
-    print(client.playlist())
-    client.disconnect()
+    #client = client_connect()
+    #print(client.playlist())
+    #client.disconnect()
 
 
 def dummy():
@@ -198,7 +205,7 @@ def stop():
 def shutdown():
     stop()
     print("Shutdown Event")
-    os.system("systemctl poweroff")
+    #os.system("systemctl poweroff")
 
 
 def main():
