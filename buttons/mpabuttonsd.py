@@ -205,7 +205,7 @@ def stop():
 def shutdown():
     stop()
     print("Shutdown Event")
-    #os.system("systemctl poweroff")
+    os.system("systemctl poweroff")
 
 
 def main():
