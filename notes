@@ -1,0 +1,53 @@
+# todo
+
+Setup wifi
+Setup second wifi w/hostapd acess
+Setup auto mount USB & locate music in music dir
+
+##Configurations for audio output:
+###3.5mm jack
+
+###HiFiBerry
+
+ apt-get install alsa-utils
+
+ edit /boot/config.txt
+ 
+  #dtparam=audio=on
+  dtoverlay=hifiberry-amp
+
+
+ Add file /etc/asound.conf
+
+  pcm.!default {
+    type hw card 0
+  }
+  ctl.!default {
+    type hw card 0
+  }
+
+
+ Edit /etc/mpd.conf
+
+audio_output {
+        type            "alsa"
+        name            "My ALSA Device"
+        mixer_device    "default"       # optional
+        mixer_control   "Master"        # optional
+}
+
+
+ 
+## Customize `/etc/mpd.conf`
+ Edit mpd.conf:
+
+# automatically search for, and add new song files
+auto_update    "yes"
+
+# start mpd with music paused
+restore_paused "yes"
+
+# create a symlink to automounted usb stick
+follow_outside_symlinks        "yes"
+
+
