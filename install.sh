@@ -5,45 +5,48 @@ sbin_dir=/usr/sbin/mpa
 
 check_root()
 {
+echo " checking for root"	
 if [ "$(id -u)" -ne 0 ] ; then
-    echo "This script must be executed with root privileges."
+    echo "  must be run as root!"
     exit 1
 fi
 }
 
 
+
 setup_system()
 {
+echo" running system setup"
 apt-get update
 #apt-get install -y iw wpasupplicant wireless-tools wireless-regdb crda --no-install-recommends
 apt-get install -y  $(cat packages) --no-install-recommends
 
-sudo pip3 install python-mpd2
-sudo pip3 install flask
+pip3 install python-mpd2
+pip3 install flask
 
 #hostnamectl set-hostname mpa0M
 
-#sudo rm /etc/hosts
-#sudo cp ./etc/hosts /etc/hosts
+#rm /etc/hosts
+#cp ./etc/hosts /etc/hosts
 
-#sudo rm /etc/motd
-#sudo cp ./etc/hosts/motd /etc/motd
+#rm /etc/motd
+#cp ./etc/hosts/motd /etc/motd
 
 # Copy song to music dir
-sudo cp ~/mpa/music/* /var/lib/mpd/music/
+cp music/* /var/lib/mpd/music/
 
 # set audio to play throuh 3.5mm headphone jack
-# amixer cset numid=3 1
+amixer cset numid=3 1
 
 #git clone https://github.com/jsprada/mpdbuttons
 #cd mpdbuttons
 #sudo sh install.sh
 
-sudo systemctl enable ssh.socket
+systemctl enable ssh.socket
 mpc update
 }
 
-# install mpa buttonsd
+
 install_buttons()
 {
 
@@ -62,6 +65,7 @@ ExecStart=/usr/sbin/mpa/buttons/mpabuttonsd.py
 WantedBy=multi-user.target
 _EOF_
 }
+
 
 install_web()
 {
@@ -93,9 +97,11 @@ start_new_d()
 
 }
 
+echo "MPA Insallation"
 check_root
+setup_system
 install_buttons
 start_new_d mpabuttonsd.service
 install_web
 start_new_d mpaweb.service
-#systemctl reboot
+systemctl reboot
