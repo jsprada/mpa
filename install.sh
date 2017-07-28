@@ -16,6 +16,13 @@ fi
 setup_env()
 {
 
+# personal settings 
+#### set country code 
+#### generate en_US locale
+#### set locale
+#### set keyboard map
+#### 
+
 hostnamectl set-hostname mpa
 
 #rm /etc/hosts
@@ -45,8 +52,9 @@ _EOF_
 #git clone https://github.com/jsprada/mpdbuttons
 #cd mpdbuttons
 #sudo sh install.sh
-#### set country code
+
 #### connect to wifi
+####   - wifi country code (cdra)
 #### setup hostapd
 }
 
