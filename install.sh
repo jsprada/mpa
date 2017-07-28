@@ -13,6 +13,42 @@ fi
 }
 
 
+setup_env()
+{
+
+hostnamectl set-hostname mpa
+
+#rm /etc/hosts
+#cp ./etc/hosts /etc/hosts
+
+cat << _EOF_ > /etc/hosts
+127.0.0.1       localhost
+127.0.0.1       mpa
+__EOF__
+
+
+rm /etc/motd
+#cp ./etc/hosts/motd /etc/motd
+cat << _EOF_ > /etc/motd
+
+  _ __  _ __  __ _ 
+ | '  \| '_ \/ _\` |
+ |_|_|_| .__/\__,_|
+       |_|         
+ 
+ Music Player Appliance
+
+ https://github.com/jsprada/mpa
+
+_EOF_
+
+#git clone https://github.com/jsprada/mpdbuttons
+#cd mpdbuttons
+#sudo sh install.sh
+#### set country code
+#### connect to wifi
+#### setup hostapd
+}
 
 setup_system()
 {
@@ -24,23 +60,11 @@ apt-get install -y  $(cat packages) --no-install-recommends
 pip3 install python-mpd2
 pip3 install flask
 
-#hostnamectl set-hostname mpa0M
-
-#rm /etc/hosts
-#cp ./etc/hosts /etc/hosts
-
-#rm /etc/motd
-#cp ./etc/hosts/motd /etc/motd
-
 # Copy song to music dir
 cp music/* /var/lib/mpd/music/
 
 # set audio to play throuh 3.5mm headphone jack
 amixer cset numid=3 1
-
-#git clone https://github.com/jsprada/mpdbuttons
-#cd mpdbuttons
-#sudo sh install.sh
 
 systemctl enable ssh.socket
 mpc update
@@ -99,6 +123,7 @@ start_new_d()
 
 echo "MPA Insallation"
 check_root
+#setup_env
 setup_system
 install_buttons
 start_new_d mpabuttonsd.service
