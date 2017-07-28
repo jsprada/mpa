@@ -123,10 +123,10 @@ start_new_d()
 
 echo "MPA Insallation"
 check_root
-#setup_env
-setup_system
-install_buttons
-start_new_d mpabuttonsd.service
-install_web
-start_new_d mpaweb.service
-systemctl reboot
+setup_env
+#setup_system
+#install_buttons
+#start_new_d mpabuttonsd.service
+#install_web
+#start_new_d mpaweb.service
+#systemctl reboot
