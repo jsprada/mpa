@@ -16,26 +16,25 @@ fi
 setup_env()
 {
 
+###  check .install_state == 0 
+# if .install_state == 0; then
+
 # personal settings 
 #### set country code 
 #### generate en_US locale
 #### set locale
 #### set keyboard map
-#### 
+#### continued with  preppi.sh  ###########
+
 
 hostnamectl set-hostname mpa
-
-#rm /etc/hosts
-#cp ./etc/hosts /etc/hosts
 
 cat << _EOF_ > /etc/hosts
 127.0.0.1       localhost
 127.0.0.1       mpa
-__EOF__
 
+_EOF_
 
-rm /etc/motd
-#cp ./etc/hosts/motd /etc/motd
 cat << _EOF_ > /etc/motd
 
   _ __  _ __  __ _ 
@@ -49,13 +48,14 @@ cat << _EOF_ > /etc/motd
 
 _EOF_
 
-#git clone https://github.com/jsprada/mpdbuttons
-#cd mpdbuttons
-#sudo sh install.sh
 
 #### connect to wifi
 ####   - wifi country code (cdra)
 #### setup hostapd
+
+# update  .install_state == 1
+# reboot
+
 }
 
 setup_system()
